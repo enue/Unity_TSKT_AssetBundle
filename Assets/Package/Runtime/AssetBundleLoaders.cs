@@ -9,17 +9,17 @@ namespace TSKT
 {
     public class WebAssetBundleLoader : AssetBundleLoader
     {
-        readonly Hash128? hash128;
+        readonly CachedAssetBundle? cachedAssetBundle;
 
-        public WebAssetBundleLoader(Hash128? hash128)
+        public WebAssetBundleLoader(CachedAssetBundle? cachedAssetBundle)
         {
-            this.hash128 = hash128;
+            this.cachedAssetBundle = cachedAssetBundle;
         }
 
         override protected async UniTask<LoadResult<AssetBundle?>> Load(string filePath, uint crc = 0)
         {
-            using var request = hash128.HasValue
-                ? UnityEngine.Networking.UnityWebRequestAssetBundle.GetAssetBundle(filePath, hash128.Value, crc)
+            using var request = cachedAssetBundle.HasValue
+                ? UnityEngine.Networking.UnityWebRequestAssetBundle.GetAssetBundle(filePath, cachedAssetBundle.Value, crc)
                 : UnityEngine.Networking.UnityWebRequestAssetBundle.GetAssetBundle(filePath, crc);
 
             var operation = request.SendWebRequest();
