@@ -1,0 +1,32 @@
+{
+    "name": "TSKT.AssetBundle",
+    "rootNamespace": "",
+    "references": [
+        "Unity.Addressables",
+        "UniTask",
+        "UniTask.Addressables",
+        "Unity.ResourceManager",
+        "TSKTFile",
+        "TSKT.Sound"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.addressables",
+            "expression": "",
+            "define": "TSKT_ASSETBUNDLE_SUPPORT_ADDRESSABLE"
+        },
+        {
+            "name": "com.github.enue.tskt_sound",
+            "expression": "",
+            "define": "TSKT_ASSETBUNDLE_SUPPORT_SOUND"
+        }
+    ],
+    "noEngineReferences": false
+}
