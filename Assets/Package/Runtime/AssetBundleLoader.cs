@@ -17,7 +17,7 @@ namespace TSKT
         public async UniTask<LoadResult<AssetBundle?>> LoadAssetBundle(
             string filePath,
             string assetBundleName,
-            int priority,
+            int priority = 0,
             uint crc = 0)
         {
             {
@@ -48,7 +48,7 @@ namespace TSKT
             }
         }
 
-        public async UniTask<LoadResult<T?>> LoadAsync<T>(string filePath, string assetbundleName, string assetName, int priority, uint crc = 0)
+        public async UniTask<LoadResult<T?>> LoadAsync<T>(string filePath, string assetbundleName, string assetName, int priority = 0, uint crc = 0)
             where T : Object
         {
             var assetBundle = await LoadAssetBundle(filePath, assetbundleName, priority, crc: crc);
@@ -71,7 +71,7 @@ namespace TSKT
             }
         }
 
-         public async UniTask<LoadResult<T[]?>> LoadAllAsync<T>(string filePath, string assetbundleName, int priority)
+         public async UniTask<LoadResult<T[]?>> LoadAllAsync<T>(string filePath, string assetbundleName, int priority = 0)
             where T : Object
         {
             var assetBundle = await LoadAssetBundle(filePath, assetbundleName, priority);
