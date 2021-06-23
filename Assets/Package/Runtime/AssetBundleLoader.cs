@@ -1,9 +1,8 @@
 ﻿#nullable enable
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System.Linq;
 using Cysharp.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 
 namespace TSKT
@@ -13,11 +12,11 @@ namespace TSKT
         static int processCount;
         readonly static List<int> waitingProcessPriorities = new List<int>();
 
-        protected abstract UniTask<LoadResult<AssetBundle?>> Load(string filename, uint crc = 0);
+        protected abstract UniTask<LoadResult<AssetBundle?>> Load(string filePath, uint crc = 0);
 
         public async UniTask<LoadResult<AssetBundle?>> LoadAssetBundle(
+            string filePath,
             string assetBundleName,
-            string filepath,
             int priority,
             uint crc = 0)
         {
@@ -35,13 +34,13 @@ namespace TSKT
                 waitingProcessPriorities.Sort();
                 await UniTask.WaitWhile(() => processCount > 0 || waitingProcessPriorities[waitingProcessPriorities.Count - 1] > priority);
                 waitingProcessPriorities.Remove(priority);
-                return await LoadAssetBundle(assetBundleName, filepath: filepath, priority: priority, crc: crc);
+                return await LoadAssetBundle(filePath: filePath, assetBundleName: assetBundleName, priority: priority, crc: crc);
             }
 
             ++processCount;
             try
             {
-                return await Load(filepath, crc);
+                return await Load(filePath, crc);
             }
             finally
             {
@@ -49,10 +48,10 @@ namespace TSKT
             }
         }
 
-        public async UniTask<LoadResult<T?>> LoadAsync<T>(string filename, string assetName, string filepath, int priority, uint crc = 0)
+        public async UniTask<LoadResult<T?>> LoadAsync<T>(string filePath, string assetbundleName, string assetName, int priority, uint crc = 0)
             where T : Object
         {
-            var assetBundle = await LoadAssetBundle(filename, filepath, priority, crc: crc);
+            var assetBundle = await LoadAssetBundle(filePath, assetbundleName, priority, crc: crc);
             if (!assetBundle.Succeeded)
             {
                 return new LoadResult<T?>(default, assetBundle.state, assetBundle.exception);
@@ -72,10 +71,10 @@ namespace TSKT
             }
         }
 
-         public async UniTask<LoadResult<T[]?>> LoadAllAsync<T>(string filename, string filepath, int priority)
+         public async UniTask<LoadResult<T[]?>> LoadAllAsync<T>(string filePath, string assetbundleName, int priority)
             where T : Object
         {
-            var assetBundle = await LoadAssetBundle(filename, filepath, priority);
+            var assetBundle = await LoadAssetBundle(filePath, assetbundleName, priority);
             if (!assetBundle.Succeeded)
             {
                 return new LoadResult<T[]?>(default, assetBundle.state, assetBundle.exception);

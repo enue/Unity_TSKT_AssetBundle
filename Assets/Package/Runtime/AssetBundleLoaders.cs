@@ -16,11 +16,11 @@ namespace TSKT
             this.hash128 = hash128;
         }
 
-        override protected async UniTask<LoadResult<AssetBundle?>> Load(string filename, uint crc = 0)
+        override protected async UniTask<LoadResult<AssetBundle?>> Load(string filePath, uint crc = 0)
         {
             using var request = hash128.HasValue
-                ? UnityEngine.Networking.UnityWebRequestAssetBundle.GetAssetBundle(filename, hash128.Value, crc)
-                : UnityEngine.Networking.UnityWebRequestAssetBundle.GetAssetBundle(filename, crc);
+                ? UnityEngine.Networking.UnityWebRequestAssetBundle.GetAssetBundle(filePath, hash128.Value, crc)
+                : UnityEngine.Networking.UnityWebRequestAssetBundle.GetAssetBundle(filePath, crc);
 
             var operation = request.SendWebRequest();
             LoadingProgress.Instance.Add(operation);
@@ -41,9 +41,9 @@ namespace TSKT
 
     public class LocalAssetBundleLoader : AssetBundleLoader
     {
-        override protected async UniTask<LoadResult<AssetBundle?>> Load(string filename, uint crc = 0)
+        override protected async UniTask<LoadResult<AssetBundle?>> Load(string filePath, uint crc = 0)
         {
-            var createRequest = AssetBundle.LoadFromFileAsync(filename, crc);
+            var createRequest = AssetBundle.LoadFromFileAsync(filePath, crc);
             LoadingProgress.Instance.Add(createRequest);
 
             await createRequest;
@@ -71,7 +71,7 @@ namespace TSKT
             this.iteration = iteration;
         }
 
-        override protected async UniTask<LoadResult<AssetBundle?>> Load(string filename, uint crc = 0)
+        override protected async UniTask<LoadResult<AssetBundle?>> Load(string filePath, uint crc = 0)
         {
             byte[] encryptedBytes;
 
@@ -81,7 +81,7 @@ namespace TSKT
 #endif
             if (webRequest)
             {
-                using var request = UnityEngine.Networking.UnityWebRequest.Get(filename);
+                using var request = UnityEngine.Networking.UnityWebRequest.Get(filePath);
                 var operation = request.SendWebRequest();
                 LoadingProgress.Instance.Add(operation);
                 await operation;
@@ -97,7 +97,7 @@ namespace TSKT
             {
                 try
                 {
-                    using var file = System.IO.File.OpenRead(filename);
+                    using var file = System.IO.File.OpenRead(filePath);
                     encryptedBytes = new byte[file.Length];
                     await file.ReadAsync(encryptedBytes, 0, encryptedBytes.Length).AsUniTask();
                 }
