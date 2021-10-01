@@ -2,12 +2,12 @@
     "name": "TSKT.AssetBundle",
     "rootNamespace": "",
     "references": [
-        "Unity.Addressables",
-        "UniTask",
-        "UniTask.Addressables",
-        "Unity.ResourceManager",
-        "TSKTFile",
-        "TSKT.Sound"
+        "GUID:9e24947de15b9834991c9d8411ea37cf",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:593a5b492d29ac6448b1ebf7f035ef33",
+        "GUID:84651a3751eca9349aac36a66bba901b",
+        "GUID:2245217fb1e4289429e8a92b7b18d438",
+        "GUID:db7fb07202f95d648b077624933021a3"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
