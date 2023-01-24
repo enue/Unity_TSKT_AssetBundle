@@ -116,7 +116,7 @@ namespace TSKT
 #if UNITY_WEBGL
                 var bytes = CryptUtil.Decrypt(encryptedBytes, key, salt, iteration);
 #else
-                var bytes = await UniTask.Run(() => CryptUtil.Decrypt(encryptedBytes, key, salt, iteration));
+                var bytes = await UniTask.RunOnThreadPool(() => CryptUtil.Decrypt(encryptedBytes, key, salt, iteration));
 #endif
                 var request = AssetBundle.LoadFromMemoryAsync(bytes, crc);
                 LoadingProgress.Instance.Add(request);
