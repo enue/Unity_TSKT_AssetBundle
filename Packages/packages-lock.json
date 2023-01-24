@@ -5,21 +5,14 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "60bfbae787b1aade3b7a2504999031d96996d7dd"
-    },
-    "com.github.enue.tskt_container": {
-      "version": "https://github.com/enue/Unity_TSKT_Container.git?path=Assets/Package",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "2f41105759d5bea43930acc534d1bdfd3b0c76c0"
+      "hash": "73d86259ce31ce7f4dfe1d028ea1c3edf96c23e4"
     },
     "com.github.enue.tskt_editor": {
       "version": "https://github.com/enue/Unity_TSKT_Editor.git?path=Assets/Package",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "e6dd443e0f609870bf66ff46fa8a3ec3fb716d1a"
+      "hash": "32d8931850768c9f586ca35fb88e31b24e9ab742"
     },
     "com.github.enue.tskt_file": {
       "version": "https://github.com/enue/Unity_TSKT_File.git?path=Assets/Package",
@@ -29,41 +22,37 @@
         "com.cysharp.unitask": "2.0.13",
         "com.github.enue.tskt_editor": "0.0.1"
       },
-      "hash": "989bf890a13517bee14d7075f5c1eb8c976ea717"
+      "hash": "e4a5e8a362cdefeb26cb0dedfd1a2e7e0443467e"
     },
     "com.github.enue.tskt_math": {
       "version": "https://github.com/enue/Unity_TSKT_Math.git?path=Assets/Package",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.github.enue.tskt_container": "0.5.3",
         "com.unity.mathematics": "1.1.0"
       },
-      "hash": "e590811aa34113f6c218bc2c6fb9dffa16f3b467"
+      "hash": "bc4605476e02068e6d17e1c45c16ad6e29cb10a2"
     },
     "com.github.enue.tskt_sound": {
       "version": "https://github.com/enue/Unity_TSKT_Sound.git?path=Assets/Package",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.cysharp.unitask": "2.0.26",
-        "com.github.enue.tskt_container": "0.5.3",
-        "com.github.enue.tskt_file": "0.10.0",
+        "com.cysharp.unitask": "2.3.3",
         "com.github.enue.tskt_math": "0.14.9",
         "com.github.enue.tskt_tween": "0.5.0"
       },
-      "hash": "e8ba50840eed2bb3ac034f2e7cca410ed4619c76"
+      "hash": "ec065a4d02e6731c7ede4ddd98440deade2325ad"
     },
     "com.github.enue.tskt_tween": {
       "version": "https://github.com/enue/Unity_TSKT_Tween.git?path=Assets/Package",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.cysharp.unitask": "2.0.13",
-        "com.github.enue.tskt_container": "0.5.2",
-        "com.github.enue.tskt_math": "0.8.3"
+        "com.cysharp.unitask": "2.3.3",
+        "com.github.enue.tskt_math": "0.21.5"
       },
-      "hash": "0350cf9a84fb9615d0c7bd90bd2daf2f13a0e935"
+      "hash": "1229bfbfccd76074eeeaf60e1ac8ed5254382892"
     },
     "com.neuecc.unirx": {
       "version": "https://github.com/neuecc/UniRx.git?path=Assets/Plugins/UniRx/Scripts",
@@ -73,11 +62,11 @@
       "hash": "284d5c50d3f1ddd9fa7df3d382ea904732a9c2ff"
     },
     "com.unity.addressables": {
-      "version": "1.18.9",
+      "version": "1.21.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.scriptablebuildpipeline": "1.19.0",
+        "com.unity.scriptablebuildpipeline": "1.21.1",
         "com.unity.modules.assetbundle": "1.0.0",
         "com.unity.modules.imageconversion": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0",
@@ -86,18 +75,29 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.ai.navigation": {
+      "version": "1.1.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.ai": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.assetbundlebrowser": {
       "version": "https://github.com/Unity-Technologies/AssetBundles-Browser.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "b7c279278d1a343c6957c9f15b45173d3211f01c"
+      "hash": "ad2a81ec3068eafd48753df1825a8dd7201ce60c"
     },
     "com.unity.collab-proxy": {
-      "version": "1.9.0",
+      "version": "1.17.7",
       "depth": 0,
       "source": "registry",
-      "dependencies": {},
+      "dependencies": {
+        "com.unity.services.core": "1.0.1"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.ext.nunit": {
@@ -108,7 +108,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
-      "version": "3.0.7",
+      "version": "3.0.18",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -117,7 +117,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.11",
+      "version": "2.0.17",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -126,28 +126,46 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.vscode": {
-      "version": "1.2.4",
+      "version": "1.2.5",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.mathematics": {
-      "version": "1.2.1",
+      "version": "1.2.6",
       "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.nuget.newtonsoft-json": {
+      "version": "3.0.2",
+      "depth": 2,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.scriptablebuildpipeline": {
-      "version": "1.19.0",
+      "version": "1.21.1",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.services.core": {
+      "version": "1.7.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.unitywebrequest": "1.0.0",
+        "com.unity.nuget.newtonsoft-json": "3.0.2",
+        "com.unity.modules.androidjni": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.test-framework": {
-      "version": "1.1.29",
+      "version": "1.1.33",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -167,7 +185,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.5.6",
+      "version": "1.7.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -188,17 +206,12 @@
       }
     },
     "com.unity.visualscripting": {
-      "version": "1.6.1",
+      "version": "1.8.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.ugui": "1.0.0",
-        "com.unity.modules.ai": "1.0.0",
-        "com.unity.modules.animation": "1.0.0",
-        "com.unity.modules.jsonserialize": "1.0.0",
-        "com.unity.modules.particlesystem": "1.0.0",
-        "com.unity.modules.physics": "1.0.0",
-        "com.unity.modules.physics2d": "1.0.0"
+        "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
@@ -333,17 +346,6 @@
     "com.unity.modules.uielements": {
       "version": "1.0.0",
       "depth": 0,
-      "source": "builtin",
-      "dependencies": {
-        "com.unity.modules.ui": "1.0.0",
-        "com.unity.modules.imgui": "1.0.0",
-        "com.unity.modules.jsonserialize": "1.0.0",
-        "com.unity.modules.uielementsnative": "1.0.0"
-      }
-    },
-    "com.unity.modules.uielementsnative": {
-      "version": "1.0.0",
-      "depth": 1,
       "source": "builtin",
       "dependencies": {
         "com.unity.modules.ui": "1.0.0",
