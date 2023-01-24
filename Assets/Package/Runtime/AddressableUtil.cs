@@ -10,20 +10,46 @@ namespace TSKT
 {
     public static class AddressableUtil
     {
-        static async public UniTask<T?> LoadAsync<T>(object key)
+        public static async UniTask<T?> LoadAsync<T>(object key)
             where T : Object
         {
             var request = Addressables.LoadAssetAsync<T>(key);
-            var progress =  LoadingProgress.Instance.Add();
+            var progress = LoadingProgress.Instance.Add();
             return await request.ToUniTask(progress);
         }
 
-        static async public UniTask<T?> LoadAsync<T>(AssetReferenceT<T> key)
+        public static async UniTask<T?> LoadAsync<T>(object key, GameObject owner)
+            where T : Object
+        {
+            var request = Addressables.LoadAssetAsync<T>(key);
+            Add(request, owner);
+            var progress = LoadingProgress.Instance.Add();
+            return await request.ToUniTask(progress);
+        }
+
+        public static async UniTask<T?> LoadAsync<T>(AssetReferenceT<T> key)
             where T : Object
         {
             var request = key.LoadAssetAsync();
             var progress = LoadingProgress.Instance.Add();
             return await request.ToUniTask(progress);
+        }
+
+        public static async UniTask<T?> LoadAsync<T>(AssetReferenceT<T> key, GameObject owner)
+            where T : Object
+        {
+            var request = key.LoadAssetAsync();
+            Add(request, owner);
+            var progress = LoadingProgress.Instance.Add();
+            return await request.ToUniTask(progress);
+        }
+
+        public static void Add(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle toRelease, GameObject to)
+        {
+            to.GetCancellationTokenOnDestroy().Register(() =>
+            {
+                Addressables.Release(toRelease);
+            });
         }
     }
 }
